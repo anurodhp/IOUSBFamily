@@ -134,14 +134,16 @@ USBGlobals::USBGlobals ( void )
 	}
 	
 	// Register our sysctl interface
-	sysctl_register_oid ( &sysctl__debug_USB );
+	/* removed (anurodhp/IOUSBFamily iokit-port, DAR-421): built into the kernel, so
+	 * SYSCTL_PROC already registered this via __sysctl_set; registering
+	 * it again panics (kern_newsysctl.c:242). */
 	
 }
 
 USBGlobals::~USBGlobals ( void )
 {
 	// Unregister our sysctl interface
-	sysctl_unregister_oid ( &sysctl__debug_USB );
+	/* removed (anurodhp/IOUSBFamily iokit-port, DAR-421) -- see the constructor. */
 	
 }
 
