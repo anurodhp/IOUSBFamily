@@ -2394,7 +2394,7 @@ IOUSBHIDDriver::GetIndexedString(UInt8 index, UInt8 *vOutBuf, UInt32 *vOutSize, 
         return kIOReturnMessageTooLarge;
     }
 
-    strlcpy((char *)vOutBuf, strBuf, (size_t)strlen);
+    strlcpy((char *)vOutBuf, strBuf, (size_t)strLen);	/* was (size_t)strlen, the function (anurodhp/IOUSBFamily iokit-port, DAR-421) */
     *vOutSize = strLen;
     return kIOReturnSuccess;
 }
