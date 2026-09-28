@@ -2769,7 +2769,7 @@ IOUSBHIDDriver::ChangeOutstandingIO(OSObject *target, void *param1, void *param2
 			me->_outstandingIO++;
 			break;
 			
-		case -1:
+		case (UInt32)-1:	/* was -1 (anurodhp/IOUSBFamily iokit-port, DAR-421) */
 			if (!--me->_outstandingIO && me->_needToClose)
 			{
 				USBLog(3, "IOUSBHIDDriver(%s)[%p]::ChangeOutstandingIO isInactive = %d, outstandingIO = %d - closing device", me->getName(), me, me->isInactive(), (uint32_t)me->_outstandingIO);
