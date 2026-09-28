@@ -1420,7 +1420,7 @@ IOUSBPipe::InitToEndpoint(const IOUSBEndpointDescriptor *ed, UInt8 speed, USBDev
 #pragma unused (ed, speed, address, controller)
 	// Deprecated method
     USBLog(1, "IOUSBPipe::InitToEndpoint, obsolete method 1 called");
-    return NULL;
+    return false;	/* was NULL (anurodhp/IOUSBFamily iokit-port, DAR-421) */
 }
 
 
