@@ -2185,7 +2185,7 @@ IOUSBDevice::SetConfiguration(IOService *forClient, UInt8 configNumber, bool sta
 	if ( _speed == kUSBDeviceSpeedSuper && _busPowerAvailable == kUSB900mAAvailable && !_USINGEXTRA400MAFORUSB3)
 	{
 		IOReturn	kr = kIOReturnNoDevice;
-		UInt32		info = NULL;
+		UInt32		info = 0;	/* was NULL (anurodhp/IOUSBFamily iokit-port, DAR-421) */
 
 		if ( _HUBPARENT )
 		{
